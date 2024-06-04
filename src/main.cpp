@@ -1,5 +1,6 @@
 #include "Model/RubiksCubeBitwise.hpp"
-#include "View/TerminalView.cpp"
+#include "View/TerminalView.hpp"
+#include "View/utils.hpp"
 #include <iostream>
 #include <vector>
 
@@ -19,18 +20,10 @@ int main() {
   cube.move(cube::RubiksCube::MOVE::UPRIME);
   cube.move(cube::RubiksCube::MOVE::FPRIME);
 
-  std::vector<std::vector<int>> matrix;
-
-  for (int i = 0; i < 6; i++) {
-    std::vector<int> face;
-    for (int j = 0; j < 8; j++) {
-      face.push_back((int)cube.cube[i][j]);
-    }
-    matrix.push_back(face);
-  }
+  std::vector<std::vector<int>> matrix = cube::getIntMatrix(cube);
 
   try {
-    CubeViewer viewer(matrix);
+    cube::CubeViewer viewer(matrix);
     viewer.display();
   } catch (const std::invalid_argument &e) {
     std::cerr << e.what() << '\n';
