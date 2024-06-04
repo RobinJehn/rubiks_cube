@@ -12,7 +12,7 @@ This project is implemented according to the Model-View-Controller design patter
 
 ## Representing and Manipulating States (Model)
 
-For efficient calculations we will use a binary representation of the cube. As outlined in this stack overflow post (https://stackoverflow.com/questions/500221/how-would-you-represent-a-rubiks-cube-in-code), you represent each side as a 64 bit integer. Each of the 8 faces on a side is encoded as a single byte that denotes its colour. The only action where all 8 colours necessarily stay the same, but the location changes is the rotation of the face. Hence it would be nice to represent the cube in a way where we can move the bytes inside the integer to represent rotation in a single instruction. This can be achieved if we order the bytes in the following way:
+For efficient calculations we will use a binary representation of the cube. As outlined in this stack overflow post (https://stackoverflow.com/questions/500221/how-would-you-represent-a-rubiks-cube-in-code), you represent each side as a 64 bit integer. Each of the 8 faces on a side is encoded as a single byte that denotes its color. The only action where all 8 colors necessarily stay the same, but the location changes is the rotation of the face. Hence it would be nice to represent the cube in a way where we can move the bytes inside the integer to represent rotation in a single instruction. This can be achieved if we order the bytes in the following way:
 
 1 2 3
 8 X 4
@@ -43,7 +43,6 @@ The cube can be seen as this:
 Face W is White and Up, Face Y is Yellow and Down
 Face R is Red and Left, Face O is Orange and Right
 Face B is Blue and Front, Face G is Green and Back
-
 
 ## Visualizing the Cube (View)
 
