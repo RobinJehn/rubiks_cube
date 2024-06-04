@@ -281,4 +281,17 @@ bool RubiksCubeBitwise::isSolved() const {
   return true;
 }
 
+std::vector<std::vector<RubiksCubeBitwise::COLOR>>
+RubiksCubeBitwise::getMatrix() const {
+  std::vector<std::vector<COLOR>> matrix;
+  for (int i = 0; i < 6; i++) {
+    std::vector<COLOR> face;
+    for (int j = 0; j < 8; j++) {
+      face.push_back(this->cube[i][j]);
+    }
+    matrix.push_back(face);
+  }
+
+  return matrix;
+}
 } // namespace cube

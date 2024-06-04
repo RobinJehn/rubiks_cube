@@ -2,6 +2,7 @@
 #include "RubiksCube.hpp"
 #include <array>
 #include <map>
+#include <vector>
 
 namespace cube {
 
@@ -48,9 +49,7 @@ private:
     BB, // Back Bottom
     BL, // Back Left
   };
-public:
   COLOR cube[6][8];
-private:
   /**
    * @brief Rotates the face of the cube according to the rotation. Ignores the
    * edges of the face.
@@ -93,6 +92,8 @@ private:
 
 public:
   RubiksCubeBitwise();
+
+  std::vector<std::vector<COLOR>> getMatrix() const;
 
   RubiksCube &u() override;
   RubiksCube &uPrime() override;
